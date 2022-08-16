@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct CheckThisApp: App {
+    private var modelData = ModelData()
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(modelData)
         }
     }
 }
