@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ItemList: View {
     @Binding var items: [Item]
+    @State var newItemName = ""
 
     var body: some View {
         List {
@@ -25,9 +26,29 @@ struct ItemList: View {
                     items.remove(atOffsets: indexSet)
                 }
             }
+            HStack {
+                TextField("New item", text: $newItemName)
+                    .onSubmit(addNewItem)
+                Spacer()
+                Button(action: addNewItem) {
+                    Image(systemName: "plus")
+                }
+                .disabled(newItemName.isEmpty)
+            }
+            .padding()
         }
         .listStyle(.inset)
         .navigationTitle("ToDo")
+    }
+
+    private func addNewItem() {
+        guard !newItemName.isEmpty else {
+            return
+        }
+        withAnimation {
+            items.append(Item(name: newItemName))
+            newItemName.removeAll()
+        }
     }
 }
 
