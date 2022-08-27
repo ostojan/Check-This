@@ -55,7 +55,7 @@ struct ItemList: View {
 struct ItemList_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            ItemList(items: .constant(ModelData().items))
+            ItemList(items: .constant(ItemRepository().items))
         }
     }
 }

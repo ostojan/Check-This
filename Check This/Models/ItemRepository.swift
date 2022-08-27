@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class ModelData: ObservableObject {
+final class ItemRepository: ObservableObject {
     @Published var items = [
         Item(name: "Task 1"),
         Item(name: "Task 2", done: true),

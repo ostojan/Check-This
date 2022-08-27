@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct ContentView: View {
-    @EnvironmentObject var modelData: ModelData
+    @EnvironmentObject var itemRepository: ItemRepository
 
     var body: some View {
         NavigationView {
-            ItemList(items: $modelData.items)
+            ItemList(items: $itemRepository.items)
         }
     }
 }
@@ -20,6 +20,6 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
-            .environmentObject(ModelData())
+            .environmentObject(ItemRepository())
     }
 }

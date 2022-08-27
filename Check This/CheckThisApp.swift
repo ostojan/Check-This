@@ -9,11 +9,11 @@ import SwiftUI
 
 @main
 struct CheckThisApp: App {
-    private var modelData = ModelData()
+    private var itemRepository = ItemRepository()
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .environmentObject(modelData)
+                .environmentObject(itemRepository)
         }
     }
 }
