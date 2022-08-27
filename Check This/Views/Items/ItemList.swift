@@ -14,7 +14,7 @@ struct ItemList: View {
     var body: some View {
         List {
             ForEach($items) { item in
-                ItemRow(item: item)
+                ItemRow(item: item.wrappedValue)
                     .onTapGesture {
                         withAnimation {
                             item.wrappedValue.done.toggle()

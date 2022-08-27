@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ItemRow: View {
-    @Binding var item: Item
+    var item: Item
 
     var body: some View {
         HStack {
@@ -29,10 +29,10 @@ struct ItemRow: View {
 
 struct ItemRow_Previews: PreviewProvider {
     static var previews: some View {
-        ItemRow(item: .constant(Item(name: "Task", done: true)))
+        ItemRow(item: Item(name: "Task", done: true))
             .previewDisplayName("Done")
             .previewLayout(.sizeThatFits)
-        ItemRow(item: .constant(Item(name: "Task")))
+        ItemRow(item: Item(name: "Task"))
             .previewDisplayName("Undone")
             .previewLayout(.sizeThatFits)
     }
