@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D463334E28BBA36300D8CB50 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D463334D28BBA36300D8CB50 /* PersistenceController.swift */; };
 		D4A5891C28AAA77400671423 /* CheckThisApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A5891B28AAA77400671423 /* CheckThisApp.swift */; };
 		D4A5891E28AAA77400671423 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A5891D28AAA77400671423 /* ContentView.swift */; };
 		D4A5892028AAA77500671423 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4A5891F28AAA77500671423 /* Assets.xcassets */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D463334D28BBA36300D8CB50 /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
 		D4A5891828AAA77400671423 /* Check This.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Check This.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4A5891B28AAA77400671423 /* CheckThisApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckThisApp.swift; sourceTree = "<group>"; };
 		D4A5891D28AAA77400671423 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -90,6 +92,7 @@
 			children = (
 				D4F0E0A328AAAB3300A0B20D /* LegacyItem.swift */,
 				D4F0E0AE28AC22D600A0B20D /* LegacyItemRepository.swift */,
+				D463334D28BBA36300D8CB50 /* PersistenceController.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -174,6 +177,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D4A5891E28AAA77400671423 /* ContentView.swift in Sources */,
+				D463334E28BBA36300D8CB50 /* PersistenceController.swift in Sources */,
 				D4F0E0A428AAAB3300A0B20D /* LegacyItem.swift in Sources */,
 				D4F0E0AF28AC22D600A0B20D /* LegacyItemRepository.swift in Sources */,
 				D4A5891C28AAA77400671423 /* CheckThisApp.swift in Sources */,
