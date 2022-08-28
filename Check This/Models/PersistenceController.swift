@@ -13,6 +13,14 @@ struct PersistenceController {
     static var preview: PersistenceController = {
         let result = PersistenceController(inMemory: true)
         let viewContext = result.container.viewContext
+        
+        for number in 1...6 {
+            var newItem = Item(context: viewContext)
+            newItem.id = UUID()
+            newItem.name = "Task \(number)"
+            newItem.done = (number % 2) == 0 ? true : false
+            newItem.created = Date()
+        }
 
         do {
             try viewContext.save()
