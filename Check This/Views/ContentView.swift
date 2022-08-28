@@ -8,11 +8,9 @@
 import SwiftUI
 
 struct ContentView: View {
-    @EnvironmentObject var legacyItemRepository: LegacyItemRepository
-
     var body: some View {
         NavigationView {
-            LegacyItemList(legacyItems: $legacyItemRepository.items)
+            ItemList()
         }
     }
 }
@@ -20,6 +18,6 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
-            .environmentObject(LegacyItemRepository())
+            .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
     }
 }

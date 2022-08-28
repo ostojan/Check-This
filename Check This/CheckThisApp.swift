@@ -9,11 +9,11 @@ import SwiftUI
 
 @main
 struct CheckThisApp: App {
-    private var legacyItemRepository = LegacyItemRepository()
+    private var persistenceController = PersistenceController.shared
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .environmentObject(legacyItemRepository)
+                .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }
 }
