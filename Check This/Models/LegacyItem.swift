@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Item: Hashable, Identifiable, Codable {
+struct LegacyItem: Hashable, Identifiable, Codable {
     var id = UUID()
     var name: String
     var done = false

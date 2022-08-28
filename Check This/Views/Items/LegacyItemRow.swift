@@ -7,32 +7,32 @@
 
 import SwiftUI
 
-struct ItemRow: View {
-    var item: Item
+struct LegacyItemRow: View {
+    var legacyItem: LegacyItem
 
     var body: some View {
         HStack {
-            if item.done {
-                itemName
+            if legacyItem.done {
+                legacyItemName
                     .strikethrough()
             } else {
-                itemName
+                legacyItemName
             }
         }
         .padding()
     }
 
-    var itemName: Text {
-        Text(item.name)
+    var legacyItemName: Text {
+        Text(legacyItem.name)
     }
 }
 
-struct ItemRow_Previews: PreviewProvider {
+struct LegacyItemRow_Previews: PreviewProvider {
     static var previews: some View {
-        ItemRow(item: Item(name: "Task", done: true))
+        LegacyItemRow(legacyItem: LegacyItem(name: "Task", done: true))
             .previewDisplayName("Done")
             .previewLayout(.sizeThatFits)
-        ItemRow(item: Item(name: "Task"))
+        LegacyItemRow(legacyItem: LegacyItem(name: "Task"))
             .previewDisplayName("Undone")
             .previewLayout(.sizeThatFits)
     }

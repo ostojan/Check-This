@@ -7,14 +7,14 @@
 
 import SwiftUI
 
-struct ItemList: View {
-    @Binding var items: [Item]
-    @State var newItemName = ""
+struct LegacyItemList: View {
+    @Binding var legacyItems: [LegacyItem]
+    @State var newLegacyItemName = ""
 
     var body: some View {
         List {
-            ForEach($items) { item in
-                ItemRow(item: item.wrappedValue)
+            ForEach($legacyItems) { item in
+                LegacyItemRow(legacyItem: item.wrappedValue)
                     .onTapGesture {
                         withAnimation {
                             item.wrappedValue.done.toggle()
@@ -23,17 +23,17 @@ struct ItemList: View {
             }
             .onDelete { indexSet in
                 withAnimation {
-                    items.remove(atOffsets: indexSet)
+                    legacyItems.remove(atOffsets: indexSet)
                 }
             }
             HStack {
-                TextField("New item", text: $newItemName)
+                TextField("New item", text: $newLegacyItemName)
                     .onSubmit(addNewItem)
                 Spacer()
                 Button(action: addNewItem) {
                     Image(systemName: "plus")
                 }
-                .disabled(newItemName.isEmpty)
+                .disabled(newLegacyItemName.isEmpty)
             }
             .padding()
         }
@@ -42,20 +42,20 @@ struct ItemList: View {
     }
 
     private func addNewItem() {
-        guard !newItemName.isEmpty else {
+        guard !newLegacyItemName.isEmpty else {
             return
         }
         withAnimation {
-            items.append(Item(name: newItemName))
-            newItemName.removeAll()
+            legacyItems.append(LegacyItem(name: newLegacyItemName))
+            newLegacyItemName.removeAll()
         }
     }
 }
 
-struct ItemList_Previews: PreviewProvider {
+struct LegacyItemList_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            ItemList(items: .constant(ItemRepository().items))
+            LegacyItemList(legacyItems: .constant(LegacyItemRepository().items))
         }
     }
 }

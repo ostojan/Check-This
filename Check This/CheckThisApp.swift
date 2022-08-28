@@ -9,11 +9,11 @@ import SwiftUI
 
 @main
 struct CheckThisApp: App {
-    private var itemRepository = ItemRepository()
+    private var legacyItemRepository = LegacyItemRepository()
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .environmentObject(itemRepository)
+                .environmentObject(legacyItemRepository)
         }
     }
 }
