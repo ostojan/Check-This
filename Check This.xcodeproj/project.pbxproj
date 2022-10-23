@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D4509B8E2905AD6900D6F74D /* ItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4509B8D2905AD6900D6F74D /* ItemViewModel.swift */; };
 		D463334E28BBA36300D8CB50 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D463334D28BBA36300D8CB50 /* PersistenceController.swift */; };
 		D463335D28BBCC7400D8CB50 /* CheckThis.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D463335B28BBCC7400D8CB50 /* CheckThis.xcdatamodeld */; };
 		D463336028BBCCA600D8CB50 /* Item+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D463335E28BBCCA600D8CB50 /* Item+CoreDataClass.swift */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D4509B8D2905AD6900D6F74D /* ItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemViewModel.swift; sourceTree = "<group>"; };
 		D463334D28BBA36300D8CB50 /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
 		D463335C28BBCC7400D8CB50 /* CheckThis.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CheckThis.xcdatamodel; sourceTree = "<group>"; };
 		D463335E28BBCCA600D8CB50 /* Item+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Item+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -44,6 +46,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D4509B8C2905AD4100D6F74D /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				D4509B8D2905AD6900D6F74D /* ItemViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 		D463336328BBCCC400D8CB50 /* Item */ = {
 			isa = PBXGroup;
 			children = (
@@ -74,6 +84,7 @@
 			children = (
 				D4F0E0A228AAAB2300A0B20D /* Models */,
 				D4A5892928AAA84200671423 /* Views */,
+				D4509B8C2905AD4100D6F74D /* ViewModels */,
 				D4A5891B28AAA77400671423 /* CheckThisApp.swift */,
 				D4A5891F28AAA77500671423 /* Assets.xcassets */,
 				D4A5892128AAA77500671423 /* Preview Content */,
@@ -192,6 +203,7 @@
 				D463336028BBCCA600D8CB50 /* Item+CoreDataClass.swift in Sources */,
 				D463336F28BBE8B600D8CB50 /* ItemList.swift in Sources */,
 				D463336128BBCCA600D8CB50 /* Item+CoreDataProperties.swift in Sources */,
+				D4509B8E2905AD6900D6F74D /* ItemViewModel.swift in Sources */,
 				D463335D28BBCC7400D8CB50 /* CheckThis.xcdatamodeld in Sources */,
 				D4A5891C28AAA77400671423 /* CheckThisApp.swift in Sources */,
 				D463336D28BBE6C800D8CB50 /* ItemRow.swift in Sources */,
