@@ -16,7 +16,7 @@ struct ItemList: View {
     var body: some View {
         List {
             ForEach(items) { item in
-                ItemRow(item: item)
+                ItemRow(itemViewModel: ItemViewModel(item))
                     .onTapGesture {
                         withAnimation {
                             do {

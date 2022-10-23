@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct ItemRow: View {
-    @ObservedObject var item: Item
+    let itemViewModel: ItemViewModel
     
     var body: some View {
         HStack {
-            if item.done {
+            if itemViewModel.done {
                 itemNameText
                     .strikethrough()
             } else {
@@ -23,7 +23,7 @@ struct ItemRow: View {
     }
     
     private var itemNameText: Text {
-        Text(item.name)
+        Text(itemViewModel.name)
     }
 }
 
@@ -46,10 +46,10 @@ struct ItemRow_Previews: PreviewProvider {
     }
     static var previews: some View {
         Group {
-            ItemRow(item: createItem(done: false))
+            ItemRow(itemViewModel: ItemViewModel(createItem(done: false)))
                 .previewDisplayName("Unfinished")
                 .previewLayout(.sizeThatFits)
-            ItemRow(item: createItem(done: true))
+            ItemRow(itemViewModel: ItemViewModel(createItem(done: true)))
                 .previewDisplayName("Finished")
                 .previewLayout(.sizeThatFits)
         }
