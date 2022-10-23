@@ -12,7 +12,7 @@ struct ItemList: View {
     @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Item.created, ascending: true)])
     private var items: FetchedResults<Item>
     @State private var newItemName = ""
-    
+
     var body: some View {
         List {
             ForEach(items) { item in
@@ -50,12 +50,11 @@ struct ItemList: View {
                 .disabled(newItemName.isEmpty)
             }
             .padding()
-            
         }
         .listStyle(.inset)
         .navigationTitle(Text("ToDo"))
     }
-    
+
     private func addNewItem() {
         guard !newItemName.isEmpty else {
             return

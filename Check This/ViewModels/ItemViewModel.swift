@@ -25,5 +25,4 @@ class ItemViewModel: Identifiable {
     init(_ item: Item) {
         self.item = item
     }
-    
 }

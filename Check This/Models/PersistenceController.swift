@@ -13,8 +13,8 @@ struct PersistenceController {
     static var preview: PersistenceController = {
         let result = PersistenceController(inMemory: true)
         let viewContext = result.container.viewContext
-        
-        for number in 1...6 {
+
+        for number in 1 ... 6 {
             var newItem = Item(context: viewContext)
             newItem.id = UUID()
             newItem.name = "Task \(number)"
@@ -28,12 +28,12 @@ struct PersistenceController {
             let nsError = error as NSError
             fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
         }
-        
+
         return result
     }()
 
     let container: NSPersistentContainer
-    
+
     var viewContext: NSManagedObjectContext {
         container.viewContext
     }
@@ -43,7 +43,7 @@ struct PersistenceController {
         if inMemory {
             container.persistentStoreDescriptions.first!.url = URL(fileURLWithPath: "/dev/null")
         }
-        container.loadPersistentStores(completionHandler: { (storeDescription, error) in
+        container.loadPersistentStores(completionHandler: { _, error in
             if let error = error as NSError? {
                 fatalError("Unresolved error \(error), \(error.userInfo)")
             }

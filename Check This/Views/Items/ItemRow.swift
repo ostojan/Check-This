@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ItemRow: View {
     let itemViewModel: ItemViewModel
-    
+
     var body: some View {
         HStack {
             if itemViewModel.done {
@@ -21,7 +21,7 @@ struct ItemRow: View {
         }
         .padding()
     }
-    
+
     private var itemNameText: Text {
         Text(itemViewModel.name)
     }
@@ -35,15 +35,16 @@ struct ItemRow_Previews: PreviewProvider {
         newItem.name = "Task"
         newItem.done = done
         newItem.created = Date()
-        
+
         do {
             try viewContext.save()
         } catch {
             fatalError("Couldn't create Item for preview")
         }
-        
+
         return newItem
     }
+
     static var previews: some View {
         Group {
             ItemRow(itemViewModel: ItemViewModel(createItem(done: false)))
