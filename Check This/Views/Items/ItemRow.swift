@@ -28,7 +28,7 @@ struct ItemRow: View {
 }
 
 struct ItemRow_Previews: PreviewProvider {
-    static var viewContext = PersistenceController.preview.container.viewContext
+    static var viewContext = PersistenceController.preview.viewContext
     static func createItem(done: Bool) -> Item {
         let newItem = Item(context: viewContext)
         newItem.id = UUID()
