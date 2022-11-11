@@ -77,9 +77,10 @@ struct ItemList: View {
 
 struct ItemList_Previews: PreviewProvider {
     static var previews: some View {
-        NavigationView {
+        PersistenceController.initPreviewController()
+        return NavigationView {
             ItemList()
-                .environment(\.managedObjectContext, PersistenceController.preview.viewContext)
+                .environment(\.managedObjectContext, PersistenceController.shared.viewContext)
         }
     }
 }

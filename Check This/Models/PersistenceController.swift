@@ -8,14 +8,30 @@
 import CoreData
 
 struct PersistenceController {
-    static let shared = PersistenceController()
+    private static var instance: PersistenceController?
+    private static var previewInstance: PersistenceController?
 
-    static var preview: PersistenceController = {
-        let result = PersistenceController(inMemory: true)
-        let viewContext = result.container.viewContext
+    static var shared: PersistenceController {
+        if previewInstance != nil {
+            return previewInstance!
+        }
+
+        if instance == nil {
+            instance = PersistenceController()
+        }
+
+        return instance!
+    }
+
+    static func initPreviewController() {
+        previewInstance = PersistenceController(inMemory: true)
+        guard let previewInstance = previewInstance else {
+            fatalError("Couldn't initialize preview persistence controller")
+        }
+        let viewContext = previewInstance.viewContext
 
         for number in 1 ... 6 {
-            var newItem = Item(context: viewContext)
+            let newItem = Item(context: viewContext)
             newItem.id = UUID()
             newItem.name = "Task \(number)"
             newItem.done = (number % 2) == 0 ? true : false
@@ -28,17 +44,15 @@ struct PersistenceController {
             let nsError = error as NSError
             fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
         }
+    }
 
-        return result
-    }()
-
-    let container: NSPersistentContainer
+    private let container: NSPersistentContainer
 
     var viewContext: NSManagedObjectContext {
         container.viewContext
     }
 
-    init(inMemory: Bool = false) {
+    private init(inMemory: Bool = false) {
         container = NSPersistentContainer(name: "CheckThis")
         if inMemory {
             container.persistentStoreDescriptions.first!.url = URL(fileURLWithPath: "/dev/null")

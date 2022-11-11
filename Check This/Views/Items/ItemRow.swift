@@ -28,8 +28,8 @@ struct ItemRow: View {
 }
 
 struct ItemRow_Previews: PreviewProvider {
-    static var viewContext = PersistenceController.preview.viewContext
     static func createItem(done: Bool) -> Item {
+        let viewContext = PersistenceController.shared.viewContext
         let newItem = Item(context: viewContext)
         newItem.id = UUID()
         newItem.name = "Task"
@@ -46,7 +46,8 @@ struct ItemRow_Previews: PreviewProvider {
     }
 
     static var previews: some View {
-        Group {
+        PersistenceController.initPreviewController()
+        return Group {
             ItemRow(itemViewModel: ItemViewModel(createItem(done: false)))
                 .previewDisplayName("Unfinished")
                 .previewLayout(.sizeThatFits)
