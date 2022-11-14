@@ -47,11 +47,12 @@ struct ItemRow_Previews: PreviewProvider {
 
     static var previews: some View {
         PersistenceController.initPreviewController()
+        let itemManager = CoreDataItemManager()
         return Group {
-            ItemRow(itemViewModel: ItemViewModel(createItem(done: false)))
+            ItemRow(itemViewModel: ItemViewModel(item: createItem(done: false), itemManager: itemManager))
                 .previewDisplayName("Unfinished")
                 .previewLayout(.sizeThatFits)
-            ItemRow(itemViewModel: ItemViewModel(createItem(done: true)))
+            ItemRow(itemViewModel: ItemViewModel(item: createItem(done: true), itemManager: itemManager))
                 .previewDisplayName("Finished")
                 .previewLayout(.sizeThatFits)
         }

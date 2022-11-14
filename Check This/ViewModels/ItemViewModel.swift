@@ -9,7 +9,7 @@ import Foundation
 
 class ItemViewModel: Identifiable {
     private let item: Item
-    private let itemManager = CoreDataItemManager()
+    private let itemManager: ItemManaging
     
     var id: UUID {
         item.id
@@ -23,8 +23,9 @@ class ItemViewModel: Identifiable {
         item.done
     }
     
-    init(_ item: Item) {
+    init(item: Item, itemManager: ItemManaging) {
         self.item = item
+        self.itemManager = itemManager
     }
     
     func toggleDone() {
