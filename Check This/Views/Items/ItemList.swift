@@ -8,37 +8,27 @@
 import SwiftUI
 
 struct ItemList: View {
-    @Environment(\.managedObjectContext) private var viewContext
-    @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Item.created, ascending: true)])
-    private var items: FetchedResults<Item>
+    @ObservedObject private var itemListViewModel = ItemListViewModel()
     @State private var newItemName = ""
 
     var body: some View {
         List {
-            ForEach(items) { item in
-                ItemRow(itemViewModel: ItemViewModel(item))
+            ForEach(itemListViewModel.itemViewModels) { itemViewModel in
+                ItemRow(itemViewModel: itemViewModel)
                     .onTapGesture {
+                        itemViewModel.toggleDone()
                         withAnimation {
-                            do {
-                                item.done.toggle()
-                                try viewContext.save()
-                            } catch {
-                                fatalError("Couldn't update Item")
-                            }
+                            itemListViewModel.saveData()
                         }
                     }
             }
             .onDelete { offsets in
                 offsets
-                    .map { items[$0] }
-                    .forEach {
-                        do {
-                            viewContext.delete($0)
-                            try viewContext.save()
-                        } catch {
-                            fatalError("Couldn't delete item")
-                        }
-                    }
+                    .map { itemListViewModel.itemViewModels[$0] }
+                    .forEach { $0.deleteItem() }
+                withAnimation {
+                    itemListViewModel.saveData()
+                }
             }
             HStack {
                 TextField("New item", text: $newItemName)
@@ -53,24 +43,17 @@ struct ItemList: View {
         }
         .listStyle(.inset)
         .navigationTitle(Text("ToDo"))
+        .onAppear { itemListViewModel.fetchAllItems() }
     }
 
     private func addNewItem() {
         guard !newItemName.isEmpty else {
             return
         }
+        itemListViewModel.createNewItem(name: newItemName)
         withAnimation {
-            do {
-                let newItem = Item(context: viewContext)
-                newItem.id = UUID()
-                newItem.name = newItemName
-                newItem.done = false
-                newItem.created = Date()
-                try viewContext.save()
-                newItemName.removeAll()
-            } catch {
-                fatalError("Couldn't create new Item")
-            }
+            itemListViewModel.saveData()
+            newItemName.removeAll()
         }
     }
 }
@@ -80,7 +63,6 @@ struct ItemList_Previews: PreviewProvider {
         PersistenceController.initPreviewController()
         return NavigationView {
             ItemList()
-                .environment(\.managedObjectContext, PersistenceController.shared.viewContext)
         }
     }
 }
