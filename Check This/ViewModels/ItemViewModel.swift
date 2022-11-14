@@ -9,7 +9,7 @@ import Foundation
 
 class ItemViewModel: Identifiable {
     private let item: Item
-    private let viewContext = PersistenceController.shared.viewContext
+    private let itemManager = ItemManager()
     
     var id: UUID {
         item.id
@@ -32,6 +32,6 @@ class ItemViewModel: Identifiable {
     }
     
     func deleteItem() {
-        viewContext.delete(item)
+        itemManager.delete(item)
     }
 }

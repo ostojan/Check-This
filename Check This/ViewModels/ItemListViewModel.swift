@@ -9,32 +9,18 @@ import Foundation
 
 class ItemListViewModel: ObservableObject {
     @Published var itemViewModels = [ItemViewModel]()
-    private let viewContext = PersistenceController.shared.viewContext
+    private let itemManager = ItemManager()
     
     func fetchAllItems() {
-        let request = Item.fetchRequest()
-        request.sortDescriptors = [NSSortDescriptor(key: "created", ascending: true)]
-        do {
-            itemViewModels = try viewContext.fetch(request).map(ItemViewModel.init)
-        } catch {
-            print("Couldn't fetch items: \(error.localizedDescription)")
-        }
+        itemViewModels = itemManager.fetchAllItems().map(ItemViewModel.init)
     }
     
     func createNewItem(name: String) {
-        let newItem = Item(context: viewContext)
-        newItem.id = UUID()
-        newItem.name = name
-        newItem.done = false
-        newItem.created = Date()
+        itemManager.createNewItem(name: name)
     }
     
     func saveData() {
-        do {
-            try viewContext.save()
-            fetchAllItems()
-        } catch {
-            print("Couldn't save data: \(error.localizedDescription)")
-        }
+        itemManager.saveData()
+        fetchAllItems()
     }
 }
