@@ -21,7 +21,7 @@ class CoreDataItemManager: ItemManaging {
         }
     }
     
-    func createNewItem(name: String, done: Bool = false, created: Date = Date()) {
+    func createNewItem(name: String, done: Bool, created: Date) {
         let newItem = Item(context: viewContext)
         newItem.id = UUID()
         newItem.name = name

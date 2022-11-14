@@ -13,3 +13,9 @@ protocol ItemManaging {
     func delete(_ item: Item)
     func saveData()
 }
+
+extension ItemManaging {
+    func createNewItem(name: String, done: Bool = false, created: Date = Date()) {
+        createNewItem(name: name, done: done, created: created)
+    }
+}
