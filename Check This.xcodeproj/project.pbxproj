@@ -18,6 +18,7 @@
 		D4A5891E28AAA77400671423 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A5891D28AAA77400671423 /* ContentView.swift */; };
 		D4A5892028AAA77500671423 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4A5891F28AAA77500671423 /* Assets.xcassets */; };
 		D4A5892328AAA77500671423 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4A5892228AAA77500671423 /* Preview Assets.xcassets */; };
+		D4E55FB1291EC3DD00D08768 /* ItemListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E55FB0291EC3DD00D08768 /* ItemListViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		D4A5891D28AAA77400671423 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		D4A5891F28AAA77500671423 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D4A5892228AAA77500671423 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		D4E55FB0291EC3DD00D08768 /* ItemListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,6 +52,7 @@
 			isa = PBXGroup;
 			children = (
 				D4509B8D2905AD6900D6F74D /* ItemViewModel.swift */,
+				D4E55FB0291EC3DD00D08768 /* ItemListViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -205,6 +208,7 @@
 				D463336128BBCCA600D8CB50 /* Item+CoreDataProperties.swift in Sources */,
 				D4509B8E2905AD6900D6F74D /* ItemViewModel.swift in Sources */,
 				D463335D28BBCC7400D8CB50 /* CheckThis.xcdatamodeld in Sources */,
+				D4E55FB1291EC3DD00D08768 /* ItemListViewModel.swift in Sources */,
 				D4A5891C28AAA77400671423 /* CheckThisApp.swift in Sources */,
 				D463336D28BBE6C800D8CB50 /* ItemRow.swift in Sources */,
 			);
