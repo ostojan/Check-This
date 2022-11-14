@@ -20,6 +20,7 @@
 		D4A5892328AAA77500671423 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4A5892228AAA77500671423 /* Preview Assets.xcassets */; };
 		D4E55FB1291EC3DD00D08768 /* ItemListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E55FB0291EC3DD00D08768 /* ItemListViewModel.swift */; };
 		D4E560092922CD4900D08768 /* ItemManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E560082922CD4900D08768 /* ItemManager.swift */; };
+		D4E5600B2922E52500D08768 /* ItemManaging.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E5600A2922E52500D08768 /* ItemManaging.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		D4A5892228AAA77500671423 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		D4E55FB0291EC3DD00D08768 /* ItemListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListViewModel.swift; sourceTree = "<group>"; };
 		D4E560082922CD4900D08768 /* ItemManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemManager.swift; sourceTree = "<group>"; };
+		D4E5600A2922E52500D08768 /* ItemManaging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemManaging.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				D4E560082922CD4900D08768 /* ItemManager.swift */,
+				D4E5600A2922E52500D08768 /* ItemManaging.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -222,6 +225,7 @@
 				D4E55FB1291EC3DD00D08768 /* ItemListViewModel.swift in Sources */,
 				D4A5891C28AAA77400671423 /* CheckThisApp.swift in Sources */,
 				D4E560092922CD4900D08768 /* ItemManager.swift in Sources */,
+				D4E5600B2922E52500D08768 /* ItemManaging.swift in Sources */,
 				D463336D28BBE6C800D8CB50 /* ItemRow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
