@@ -9,7 +9,7 @@ import Foundation
 
 class ItemViewModel: Identifiable {
     private let item: Item
-    private let itemManager = ItemManager()
+    private let itemManager = CoreDataItemManager()
     
     var id: UUID {
         item.id

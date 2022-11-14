@@ -7,7 +7,7 @@
 
 import Foundation
 
-class ItemManager {
+class CoreDataItemManager: ItemManaging {
     private let viewContext = PersistenceController.shared.viewContext
     
     func fetchAllItems() -> [Item] {

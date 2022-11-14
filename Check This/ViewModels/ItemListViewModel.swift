@@ -9,7 +9,7 @@ import Foundation
 
 class ItemListViewModel: ObservableObject {
     @Published var itemViewModels = [ItemViewModel]()
-    private let itemManager = ItemManager()
+    private let itemManager = CoreDataItemManager()
     
     func fetchAllItems() {
         itemViewModels = itemManager.fetchAllItems().map(ItemViewModel.init)
